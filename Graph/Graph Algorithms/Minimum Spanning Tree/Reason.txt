@@ -1,0 +1,3 @@
+We choose an undirected graph for a Minimum Spanning Tree (MST) because it ensures 
+bidirectional connectivity between vertices, which is essential for forming a spanning tree 
+without direction constraints.

@@ -1,0 +1,2 @@
+We use a directed graph for Topological Sort because it represents dependency order, ensuring 
+that edges (u → v) indicate a strict sequence where u must appear before v.

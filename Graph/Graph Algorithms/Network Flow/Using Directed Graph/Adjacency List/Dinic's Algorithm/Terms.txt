@@ -1,0 +1,9 @@
+Dinic's Algorithm
+1. We get stuck finding a path, so the blocking flow has been reached.
+2. Rebuild the level graph. This time it should look differnt because the remaining capacities 
+   of multiple edges has changed.
+
+3. If we reached dead-end in out DFS, so backtrack and keep going until we reached a sink.
+3. The Algorithm may encounter multiple dead ends during the DFS phase. 
+3. Dead ends are highle undesirable because they extend the length of the journey from the
+   source to the sink, especially if the same dead end is taken multiple times during a blocking flow iteration.

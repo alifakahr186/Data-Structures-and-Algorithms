@@ -1,0 +1,3 @@
+We solve finding a bridge with an undirected graph because removing a bridge in an undirected graph 
+disconnects the graph, whereas in a directed graph, the directionality of edges prevents this 
+from necessarily occurring.

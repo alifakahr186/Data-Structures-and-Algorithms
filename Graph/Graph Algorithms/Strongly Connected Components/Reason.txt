@@ -1,0 +1,3 @@
+We choose Directed graphs using adjacency lists for Strongly Connected Components (SCCs) 
+because they efficiently represent directed edges and allow quick traversal of neighbors, 
+which is essential for algorithms like Kosaraju's and Tarjan's.

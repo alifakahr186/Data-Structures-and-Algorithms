@@ -1,0 +1,3 @@
+We solve connected components with an undirected graph because, in undirected graphs, edges 
+represent bidirectional connections, allowing traversal between vertices in both directions, which 
+is essential for identifying all reachable components.

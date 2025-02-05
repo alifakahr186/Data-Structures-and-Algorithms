@@ -1,0 +1,9 @@
+We choose an adjacency list for network flow algorithms because it is space-efficient for 
+sparse graphs, providing faster access and reducing memory usage compared to an adjacency matrix.
+
+
+
+
+
+
+

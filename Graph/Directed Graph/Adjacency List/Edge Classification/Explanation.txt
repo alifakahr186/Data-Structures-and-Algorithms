@@ -1,0 +1,17 @@
+TREE EDGE
+An edge (x, y) is a tree edge if y is discovered for the first time while exploring x in DFS.
+
+FORWARD EDGE
+An edge (x, y) is a forward edge if y appears after x in the DFS traversal, meaning y is 
+already visited, and there is a path from x to y.
+
+BACKWARD EDGE
+An edge (x, y) is a backward edge if y appears before x in the DFS traversal, meaning y is 
+an ancestor of x, creating a cycle.
+
+CROSS EDGE
+1. (x, y) where no path from y to x.
+2. An edge (x, y) is a cross edge if y is neither an ancestor nor a descendant of x, meaning 
+    x and y belong to different DFS trees (in a disconnected graph or different components).
+
+NOTE: Where x & y are Vertex

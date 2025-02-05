@@ -1,0 +1,3 @@
+We solve connected components using adjacency lists because they provide efficient space and time 
+complexity for traversing sparse graphs, allowing quick access to neighboring vertices 
+during DFS or BFS traversal.

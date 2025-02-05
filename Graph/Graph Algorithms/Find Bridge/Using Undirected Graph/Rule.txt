@@ -1,0 +1,2 @@
+We solve finding a bridge using adjacency lists because they offer efficient space and time 
+complexity, allowing quick access to neighbors during DFS traversal, especially for sparse graphs.

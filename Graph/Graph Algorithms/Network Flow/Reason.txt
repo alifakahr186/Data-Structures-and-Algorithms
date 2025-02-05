@@ -1,0 +1,2 @@
+We choose a directed graph with an adjacency list for network flow because 
+it efficiently represents flow directions and supports fast edge traversal and capacity updates.

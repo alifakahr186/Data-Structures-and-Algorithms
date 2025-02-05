@@ -1,0 +1,10 @@
+A* Algorithm (Best form of BFS)
+
+f(n) = g(n) + h(n)
+
+f(n) = Estimated total path to reach goal
+g(n) = cost to reach the node
+h(n) = heuristic value that estimate the cost of the cheapest path from n to the target node.
+
+
+

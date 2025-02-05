@@ -1,0 +1,2 @@
+Kahn’s Algorithm is BFS-based because it processes nodes in a level-wise (breadth-first) 
+manner, just like Breadth-First Search (BFS).

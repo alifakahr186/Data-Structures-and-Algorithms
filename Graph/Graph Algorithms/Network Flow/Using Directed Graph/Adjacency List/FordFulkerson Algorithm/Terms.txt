@@ -1,0 +1,32 @@
+Ford-Fulkerson
+We can implemented both of BFS or DFS.
+
+Basic Terms:
+1: Source
+2: Sink
+3: Capacity and Bottleneck Capacity
+4: Flow
+5: Augumenting Path
+6: Residual Capacity
+
+1:Source
+The Source vertex has all outward edge, no inward edge
+
+2:Sink
+Sink will have all inward edge, no outward edge
+
+3:Bottleneck Capacity
+Bottleneck Capacity of the path is the minimum capacity of any edge on the path
+
+4: Flow
+Point: we write flow and capacity: flow/capacity 4/5
+
+5: Augumenting Path
+We find Bottleneck capacity of nodes from Source to Sink than that thing is called Augumenting Path
+
+6: Residual Capacity
+Every edge of a Residual graph(A graph which represents Network Flow) has a value called Residual capacity
+which is equal to orginal capacity minus currect flow. The path which Residual capacity zero.
+We should not consider that.
+Residual value = 4/5, 4 - 5, 1, 1/5
+New Residual value = min+4/5

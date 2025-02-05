@@ -1,0 +1,8 @@
+1. Removing one edge from the ST will make it disconnected.
+2. Adding one edge to the ST will create a cycle (loop).
+3. If each edge has a distinct weight, there will be only one unique MST.
+4. A complete undirected graph can have 2^n−2 distinct spanning trees.
+5. Every connected and undirected graph has at least one Spanning Tree.
+6. A disconnected graph does not have any Spanning Tree.
+7. From a complete graph, by removing e−n+1 edges, we can construct a Spanning Tree.
+

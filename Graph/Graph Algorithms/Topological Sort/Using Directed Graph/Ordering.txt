@@ -1,0 +1,4 @@
+There are two main ways to implement Topological Sort:
+
+1. Using BFS → Kahn’s Algorithm 
+2. Using DFS → (Depth-First Search) 

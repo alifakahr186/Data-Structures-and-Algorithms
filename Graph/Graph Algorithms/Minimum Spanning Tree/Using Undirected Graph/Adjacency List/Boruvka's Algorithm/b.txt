@@ -1,0 +1,219 @@
+For i = 0
+ 
+For edge[i]
+u = A
+v = B
+cheapest[A] = B
+cheapest[B] = A 
+
+For edge[i]
+u = A
+v = H
+cheapest[A] = H
+cheapest[H] = A
+
+
+For edge[i]
+u = A
+v = G
+cheapest[A] = No change
+cheapest[G] = A 
+_________________________________________
+
+For i = 1 
+
+For edge[i]
+u = B
+v =  A
+cheapest[B] = No change 
+cheapest[A] =  No change
+
+
+For edge[i]
+u = B
+v = I
+cheapest[B] = I 
+cheapest[I] = B
+
+ 
+For edge[i]
+u = B
+v = C
+cheapest[B] = C 
+cheapest[C] = B 
+
+For edge[i]
+u = B
+v = E
+cheapest[B] = E
+cheapest[E] = B
+______________________________________________________
+
+For i = 2
+ 
+For edge[i]
+u = C
+v = D
+cheapest[C] = No change 
+cheapest[D] = C
+
+For edge[i]
+u = C
+v = B
+cheapest[C] = B
+cheapest[B] = C
+ 
+For edge[i]
+u = C
+v = E
+cheapest[C] = No change 
+cheapest[E] = No change
+__________________________________________________________
+
+For i = 3
+ 
+For edge[i]
+u = D
+v = C
+cheapest[D] = No change 
+cheapest[C] = No change
+ 
+For edge[i]
+u = D
+v = E
+cheapest[D] = No change 
+cheapest[E] = No change
+__________________________________________________________
+
+For i = 4
+ 
+For edge[i]
+u = E
+v = D
+cheapest[E] = No change 
+cheapest[D] = No change
+
+ 
+For edge[i]
+u = E
+v = C
+cheapest[E] = No change 
+cheapest[C] = No change
+
+ 
+For edge[i]
+u = E
+v = B
+cheapest[E] = B 
+cheapest[B] = E
+
+
+For edge[i]
+u = E
+v = F
+cheapest[E] = F 
+cheapest[F] = E
+____________________________________________________
+
+For i = 5
+
+For edge[i]
+u = F
+v = I
+cheapest[F] = no change 
+cheapest[I] = no change
+
+ 
+For edge[i]
+u = F
+v = E
+cheapest[F] = E
+cheapest[E] = F
+
+ 
+For edge[i]
+u = F
+v = G
+cheapest[F] = G
+cheapest[G] = no change
+_____________________________________________________
+
+For i =6
+ 
+For edge[i]
+u = G
+v = F
+cheapest[G] = no change 
+cheapest[F] = G
+
+ 
+For edge[i]
+u = G
+v = I
+cheapest[G] = No change
+cheapest[I] = No change
+
+ 
+For edge[i]
+u = G
+v = A
+cheapest[G] = no change
+cheapest[A] = no change
+ 
+For edge[i]
+u = G
+v = H
+cheapest[G] = no change
+cheapest[H] = no change
+_____________________________________________________
+
+For i = 7
+ 
+For edge[i]
+u = H
+v = A
+cheapest[H] = no change 
+cheapest[A] = H
+ 
+For edge[i]
+u = H
+v = G
+cheapest[H] = no change
+cheapest[G] = no change
+_______________________________________________________
+
+For i = 8
+ 
+For edge[i]
+u = I
+v = B
+cheapest[I] = no change 
+cheapest[B] = I
+ 
+For edge[i]
+u = I
+v = F
+cheapest[I] = no change 
+cheapest[F] = no change
+ 
+For edge[i]
+u = I
+v = G
+cheapest[I] = no change
+cheapest[G] = no change
+
+____________________________________________________
+
+cheapest[] = H  I  B  C  F  G  A  A  B
+
+
+Vertex
+A            B  8  H  4  G  11
+B            A  8  I  2  C  7  E  4
+C            D  9  B  7  E  14
+D            C  9  E  10
+E            D  10  C  14  B  4  F  2
+F             I  6  E  2  G  1
+G            F  1  I  7  A  11  H  8
+H            A  4  G  8
+I              B  2  F  6  G  7 
