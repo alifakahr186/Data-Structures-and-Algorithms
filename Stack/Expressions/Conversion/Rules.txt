@@ -1,0 +1,35 @@
+Precedence Rules:
+Parentheses: () [] {} (Highest precedence)
+Exponentiation: ^ (Right-to-left associativity)
+Multiplication and Division: * and / (Left-to-right associativity)
+Addition and Subtraction: - and + (Left-to-right associativity)
+
+Print operands as they arrive.
+
+Operands (like A, B, or numbers like 3, 5) are immediately added to the output.
+If the stack is empty or contains a left parenthesis on top, push the incoming operator onto the stack.
+
+This rule initializes the stack correctly when it’s empty or handles the left parenthesis properly.
+If the incoming symbol is (, push it onto the stack.
+
+Left parentheses are pushed to help handle sub-expressions.
+If the incoming symbol is ), pop the stack and print operators until a left parenthesis is found.
+
+Continue popping and outputting operators until the matching ( is found, which is then discarded (not added to the output).
+If the incoming symbol has higher precedence than the top of the stack, push it onto the stack.
+
+This rule works well, as higher-precedence operators should go on top of lower-precedence ones on the stack.
+If the incoming symbol has lower precedence than the top of the stack, pop and print the top operator. Then test the incoming operator against the new top of the stack.
+
+This ensures operators are output in the correct order for postfix notation.
+If the incoming operator has equal precedence with the top of the stack, use the associativity rule:
+
+If associativity is Left to Right, pop and print the top of the stack, then push the incoming operator.
+
+If associativity is Right to Left, push the incoming operator.
+
+This handles equal-precedence operators correctly by following associativity rules.
+
+At the end of the expression, pop and print all operators from the stack.
+
+This final step clears the stack, ensuring all remaining operators are output in the correct order.
