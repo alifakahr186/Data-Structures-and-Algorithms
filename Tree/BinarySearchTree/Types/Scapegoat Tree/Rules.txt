@@ -1,0 +1,22 @@
+1. Perform Regular Binary Search Tree (BST) Insertion
+2. The difference between size of left subtree and right subtree is less than half. Than it is Unbalanced.
+    > Consider, size of left_subtree is 10 and right_subtree is 5. Than it is balanced.
+    > If size of left_subtree is 10 and right_subtree is 4. Than it is Unbalanced.
+
+2. Track the Size of Each Subtree
+    > Formula: Size(node) = 1 + Size(left_subtree) + Size(right_subtree)
+3. Check the Balance Condition
+    > Formula: Size(left_subtree) ≤ α × Size(node) and Size(right_subtree) ≤ α × Size(node)
+
+4. Identify the Scapegoat (Unbalanced Node)
+    i:  If the balance condition is violated for any node, find the first ancestor node 
+        (starting from the newly inserted node) that breaks the balance condition.
+    ii: A node is a scapegoat if either its left or right subtree is too large compared to the entire subtree.
+
+5. Rebuild the Subtree of the Scapegoat
+    i:   Do in-order traversal
+    ii:  Find the middle node
+    iii: Recursively build the left and right subtrees from the remaining nodes.
+
+6. Replace the Unbalanced Subtree
+    i: If the scapegoat is the root of the whole tree, the balanced subtree becomes the new root.

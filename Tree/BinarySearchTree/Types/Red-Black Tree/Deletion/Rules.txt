@@ -1,0 +1,33 @@
+Step 1: Perform BST Deletion
+
+Step 2: Handle Red-Black Tree Violations
+
+        Case I: If the node to be deleted is red, simply delete it.
+
+        Case II: If the root is Double Black (DB), just remove DB.
+
+        Case III: If the DB sibling is black and both its children are black:
+                > Remove DB.
+                > Add a black to its parent:
+                   ~ If the parent is red, change it to black.
+                   ~ If the parent is black, change it to double black.
+                > Make the sibling red.
+                > If the result is still DB, exit and apply other cases.
+
+        Case IV: If the DB sibling is red:
+                > Swap the colors of the parent and its sibling.
+                > Rotate parent in DB direction. 
+                > Re-apply cases to handle the new situation.
+
+        Case V: If the DB sibling is black, the sibling's child who is far from DB is black,
+                but the near child to DB is red (and not nil):
+
+                > Swap the color of the DB sibling and sibling child who is near to DB.
+                > Rotate sibling in opposite direction to DB.
+                > Apply cases 6.
+
+        Case VI: If the DB sibling is black, and its far child is red:
+                > Swap the color of parent and sibling.
+                > Rotate the parent in DB direction.
+                > Remove DB.
+                > Change color of red child to black.

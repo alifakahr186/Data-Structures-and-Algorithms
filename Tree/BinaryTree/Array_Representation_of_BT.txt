@@ -1,0 +1,11 @@
+CASE I:
+    1. If a node is at ith index:
+        Left child would be at [(2*i)+1]
+        Right child would be at [(2*i)+2]
+        Parent would be at [(i-1)/2]
+
+CASE II:
+    2. Node is at ith index:
+        Left child at = (2*i)
+        Right child at = [(2*i)+1]
+        Parent at = [i/2]
