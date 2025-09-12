@@ -1,4 +1,4 @@
-# Data Structures and Algorithms (DSA) Repository  
+# Data Structures and Algorithms (DSA)   
 
 This repository is designed for **beginners** who are starting their journey with **Data Structures and Algorithms (DSA)**.  
 It covers all the **basic topics** in DSA and gradually moves towards **advanced concepts**.  
