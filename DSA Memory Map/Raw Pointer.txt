@@ -1,0 +1,105 @@
+/*
+int a[] = {6, 2, 1, 5, 3};
+
+Index       Value       Address
+0           6           0x100
+1           2           0x104   
+2           1           0x108   
+3           5           0x112
+4           3           0x116
+5           .           0x120            
+.           .           .            
+.           .           .
+.           .           .
+.           .           .
+.           .           .
+b           10          0x200
+p           0x200       0x204
+.
+.
+.
+q           0x100       0x300
+            (0x104)
+*/
+
+____________________________
+
+int b = 10;
+int *p;  //We read point to integer
+char *p; //point to char
+
+p = &b; //It say give me Address of b
+p = b; //Wrong pointer only store Address
+
+cout << b  //10
+cout << *p //10
+cout << &b //0x200
+cout << p //0x200
+
+=========================================================================
+
+int a[] = {6, 2, 1, 5, 3};
+a -> It is array
+int *q;
+q = a //It is valid becasue it hold the Address of first element "a = (&a[0])"
+q = &a[2]; //0x108
+
+cout << a //0x100
+cout << q //0x100
+
+Increment pointer
+q++; //q hold the Address of first array element a[0]->0x100 so after, q++
+//q point to the next element Address which is 2->0x104
+//now q hold the Address of 0x104 becuase array is int(4 bytes), if in case:
+//it is char, float than accoridng
+//to their bytes it increment
+
+a++ //Error:Becasue you can not change the base Address of array
+q = a[2] //it is a ppinter which hold the Address of other 
+
+cout << &a //0x100
+cout << &q //0x300
+
+a = &a //Valid: In case of pointer because both have same Address
+q != &q //Error: In case of pointer, because both have diffrent Address
+
+cout << a[2] //1
+cout << *(a + 2) //1
+cout << *(q + 1) //0x108
+
+//We can write a[i] in folloing diffrent forms
+a[i] = *(a + i);
+a[i] = *(q + i);
+a[i] = *(i + q);
+a[i] = i[q];
+*(i + q) = i[a]
+
+cout << a + 1 //0x104: "Mean: &a[0] + 1"
+cout << &a + 1 //0x120: Because it is "int (*)[4] (pointer to whole array)" compiler moves by SIZE OF ENTIRE ARRAY
+
+*a = value at a[0]
+
+cout << *a //6 Mean: 
+cout << *(a + 1) //2
+cout << *a + 1 //7 
+
+=========================================================================
+
+int a[5], i;
+int *q = a;
+//Print array Address in diffrent ways
+for(int i = 0; i < 5; i++){
+    cout << &a[i];
+    cout << (i + a);
+    cout << (q + i);
+    cout << &q[i];
+}
+
+//Print Values of array using pointer in diffrent ways
+for(int i = 0; i < 5; i++){
+    cout << a[i];
+    cout << *(q + i);
+    cout << *(a + i);
+    cout << i[a];
+    cout << i[q];
+}
