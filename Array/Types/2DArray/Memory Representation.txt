@@ -1,0 +1,41 @@
+2D ARRAY MEMORY REPRESENTATION
+[Row] [Col] -> [n][m]
+
+--------------------------------------
+ROW-MAJOR IMPLEMENTATION (2D)
+--------------------------------------
+
+a[i][j] = B + [(i × n) + j] × size
+
+Where:
+B = Base Address
+n = number of columns
+size = data type size (bytes)
+
+Example:
+Base = 100
+size(int) = 4 bytes
+i = 1, j = 1, n = 2
+
+a[1][1] = 100 + [(1 × 2) + 1] × 4
+        = 100 + (3 × 4)
+        = 112
+
+
+--------------------------------------
+COLUMN-MAJOR IMPLEMENTATION (2D)
+--------------------------------------
+
+a[i][j] = B + [(j × m) + i] × size
+
+Where:
+m = number of rows
+
+Example:
+Base = 100
+size(int) = 4 bytes
+i = 1, j = 1, m = 2
+
+a[1][1] = 100 + [(1 × 2) + 1] × 4
+        = 100 + (3 × 4)
+        = 112

@@ -1,0 +1,53 @@
+3D ARRAY MEMORY REPRESENTATION
+[Depth][Row][Col] -> [p][n][m]
+
+--------------------------------------
+ROW-MAJOR IMPLEMENTATION (3D)
+--------------------------------------
+
+a[i][j][k] = B + {[(i × n × m) + (j × m) + k] × size}
+
+Where:
+p = depth
+n = rows
+m = columns
+
+Example:
+Base = 100
+size(int) = 4 bytes
+
+Dimensions:
+p = 3, n = 2, m = 2
+
+i = 1, j = 1, k = 1
+
+a[1][1][1] = 100 + {[(1 × 2 × 2) + (1 × 2) + 1] × 4}
+           = 100 + {(4 + 2 + 1) × 4}
+           = 100 + (7 × 4)
+           = 128
+
+
+--------------------------------------
+COLUMN-MAJOR IMPLEMENTATION (3D)
+--------------------------------------
+
+a[i][j][k] = B + {[(k × n × p) + (j × p) + i] × size}
+
+Where:
+p = depth
+n = rows
+m = columns
+
+Example:
+Base = 100
+size(int) = 4 bytes
+
+Dimensions:
+p = 3, n = 2, m = 2
+
+i = 1, j = 1, k = 1
+
+a[1][1][1] = 100 + {[(1 × 2 × 3) + (1 × 3) + 1] × 4}
+           = 100 + {(6 + 3 + 1) × 4}
+           = 100 + (10 × 4)
+           = 140
