@@ -1,0 +1,9 @@
+If the target key is in Leaf Node
+i: Than leaf node contain more than minimum number of keys.
+ii: Than leaf node contain minimum numer of keys.
+    > Borrow from immediate left node(sibling) or right node
+    > If not find than merge both nodes and create single node
+
+If the target key is in Internal Node. Choose one of them
+i: Inorder Predecessor
+ii: Inorder Sucessor

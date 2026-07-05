@@ -1,0 +1,13 @@
+Bottom-Up Deletion: 
+
+Here, you first find the node you want to delete according to BST.
+Once found, you remove the node and then splay the parent of the deleted node. 
+This splaying operation moves the parent node closer to the root, 
+adjusting the tree structure to maintain the splaying property.
+
+FOR INTERNAL NODE.
+You can not delete internal node, for deleting internal
+node first replace it with inorder predecessor or successor
+then perform splay on parent (a node which you delete) if parent is 
+already root node then do not need of splay.
+

@@ -1,0 +1,5 @@
+Inorder Predecessor
+Find the Maximum element in left subtree and exchange it with root element and than delete that root.
+
+Inorder Sucessor
+Find the Minimum element in right subtree and exchange it with root element and than delete that root.

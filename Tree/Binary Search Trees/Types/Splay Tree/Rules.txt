@@ -1,0 +1,22 @@
+1: Zig (Single Rotation):
+single rotation to bring this node to the root.
+
+2: Zig-Zig (Double Rotation):
+left children or both right children.
+two rotations in the same direction to bring the node closer to the root.
+
+3: Zig-Zag (Double Rotation):
+left child of a right parent or a right child of a left parent.
+first rotation goes in one direction, and the second goes in the opposite direction.
+
+A: Zig Rotation
+Zig
+Zag
+
+B: Zig-Zig Rotation
+Zig-Zig
+Zag-Zag
+
+C: Zig-Zag Rotation
+Zig-Zag
+Zag-Zig

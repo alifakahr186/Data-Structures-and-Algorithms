@@ -1,70 +1,193 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
-struct Node {
+class Node
+{
+public:
     int data;
     Node* next;
 
-    Node(int d) : data(d), next(nullptr) {} 
+    Node(int value)
+    {
+        data = value;
+        next = nullptr;
+    }
 };
 
-class HashTable {
+class Hash
+{
 private:
-    std::vector<Node*> table;  
-    int size;
+    static const int SIZE = 10;
+    Node* bucket[SIZE];
 
 public:
-    HashTable(int size) {
-        this->size = size;
-        table.resize(size, nullptr);
+
+    Hash()
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            bucket[i] = nullptr;
+        }
     }
 
-    // Destructor to free allocated memory and prevent memory leaks
-    ~HashTable() {
-        table.clear();
+    int hashFunction(int key)
+    {
+        return key % SIZE;
     }
 
-    // Hash function h(k) = (2k + 3) % size
-    int hashFunction(int key) const {
-        return (2 * key + 3) % size;
+    void insert(int key)
+    {
+        int index = hashFunction(key);
+
+        Node* newNode = new Node(key);
+
+        // No Collision
+        if (bucket[index] == nullptr)
+        {
+            bucket[index] = newNode;
+            return;
+        }
+
+        // Collision -> Separate Chaining
+        Node* temp = bucket[index];
+
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = newNode;
     }
 
-    void insert(int key) {
-        int index = hashFunction(key);  
-        Node* newNode = new Node(key); 
+    void search(int key)
+    {
+        int index = hashFunction(key);
 
-        // Insert the new node at the beginning of the linked list for the bucket
-        newNode->next = table[index];
-        table[index] = newNode;
+        Node* temp = bucket[index];
 
-        std::cout << "Inserted " << key << " in bucket " << index << std::endl;
-    }
-
-    void displayHash() const {
-        for (int i = 0; i < size; ++i) {
-            std::cout << "Bucket " << i << ": ";
-            Node* current = table[i];
-            while (current != nullptr) {
-                std::cout << current->data << " ";
-                current = current->next;
+        while (temp != nullptr)
+        {
+            if (temp->data == key)
+            {
+                cout << key << " Found in Bucket[" << index << "]" << endl;
+                return;
             }
-            std::cout << std::endl;
+
+            temp = temp->next;
+        }
+
+        cout << key << " Not Found!" << endl;
+    }
+
+    void remove(int key)
+    {
+        int index = hashFunction(key);
+
+        Node* temp = bucket[index];
+        Node* prev = nullptr;
+
+        while (temp != nullptr)
+        {
+            if (temp->data == key)
+            {
+                // First Node
+                if (prev == nullptr)
+                {
+                    bucket[index] = temp->next;
+                }
+                else
+                {
+                    prev->next = temp->next;
+                }
+
+                delete temp;
+
+                cout << key << " Deleted Successfully." << endl;
+                return;
+            }
+
+            prev = temp;
+            temp = temp->next;
+        }
+
+        cout << key << " Not Found!" << endl;
+    }
+
+    void display()
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            cout << "Bucket[" << i << "] --> ";
+
+            Node* temp = bucket[i];
+
+            while (temp != nullptr)
+            {
+                cout << temp->data << " -> ";
+                temp = temp->next;
+            }
+
+            cout << "NULL" << endl;
+        }
+    }
+
+    // Destructor
+    ~Hash()
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            Node* temp = bucket[i];
+
+            while (temp != nullptr)
+            {
+                Node* next = temp->next;
+                delete temp;
+                temp = next;
+            }
         }
     }
 };
 
-int main() {
-    std::vector<int> arr = {3, 2, 9, 6, 11, 13, 7, 12};  
-    int size = 10;  
+int main()
+{
+    Hash hash;
 
-    HashTable hashTable(size);
+    int n;
 
-    for (int key : arr) {
-        hashTable.insert(key);
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter Elements:\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        int value;
+        cin >> value;
+
+        hash.insert(value);
     }
 
-    std::cout << "\nFinal Hash Table:" << std::endl;
-    hashTable.displayHash();
+    hash.display();
+
+    cout << endl;
+
+    int key;
+
+    cout << "Enter element to search: ";
+    cin >> key;
+
+    hash.search(key);
+
+    cout << endl;
+
+    cout << "Enter element to delete: ";
+    cin >> key;
+
+    hash.remove(key);
+
+    cout << endl;
+
+    hash.display();
 
     return 0;
 }

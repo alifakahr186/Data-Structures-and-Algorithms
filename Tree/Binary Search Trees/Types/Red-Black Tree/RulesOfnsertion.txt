@@ -1,0 +1,14 @@
+Step 1: If tree is empty, create newnode as root node with color BLACK.
+
+Step 2: If tree is not empty, create newnode as leaf node with color RED.
+
+Step 3: If parent of newnode is BLACK then exit.
+
+Step 4: If parent of newnode is RED then check the color of parent sibling of newnode:
+
+    a: If color is BLACK or NULL then do suitable rotation(Do AVL) and recolor.
+    
+    b: If color is RED then recolor and also check if parent's parent of newnode is not root node
+        then recolor it and recheck
+
+What is suitable rotation?

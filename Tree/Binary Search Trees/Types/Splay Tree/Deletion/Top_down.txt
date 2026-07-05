@@ -1,0 +1,14 @@
+Top-Down Deletion: 
+In this approach, you start from the root and traverse the tree 
+to find the node you want to delete. While traversing
+you splay the tree as needed to bring the node to be deleted 
+closer to the root. Once you find the node
+you perform the deletion operation. This approach involves splaying 
+the tree during the search process and then performing the deletion.
+
+First make a delete node as a root by performing splaying
+then delete root and then apply join operation on it.
+Find maximum from left and then make that node a root node
+and then attached right to that root node OR 
+Find minimum from right and then make that node a root node
+and then attached left to that root node.

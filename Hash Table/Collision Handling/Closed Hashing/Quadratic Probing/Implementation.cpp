@@ -1,59 +1,155 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
-class HashTable {
+class Hash
+{
 private:
-    std::vector<int> table;  
-    int size;              
+    static const int SIZE = 10;
+    int bucket[SIZE];
 
 public:
-    HashTable(int size) {
-        this->size = size;
-        table.resize(size, -1);  
+
+    Hash()
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            bucket[i] = -1;      // -1 = Empty
+        }
     }
 
-    // Hash function: h(k) = (2k + 3) % size
-    int hashFunction(int key) {
-        return (2 * key + 3) % size;
-    }
+    void insert(int key)
+    {
+        int hash = key % SIZE;
+        int i = 0;
 
-    void insert(int key) {
-        int u = hashFunction(key);  
-        for (int i = 0; i < size; ++i) {
-            int index = (u + i * i) % size;  // Quadratic probing: (u + i^2) % size
-            if (table[index] == -1) {       
-                table[index] = key;         
-                std::cout << "Inserted " << key << " at index " << index << std::endl;
+        while (i < SIZE)
+        {
+            int index = (hash + i * i) % SIZE;
+
+            // Empty or Deleted Bucket
+            if (bucket[index] == -1 || bucket[index] == -2)
+            {
+                bucket[index] = key;
+                cout << key << " inserted at Bucket[" << index << "]" << endl;
                 return;
             }
+
+            i++;
         }
-        std::cout << "Hash table is full. Could not insert key: " << key << std::endl;
+
+        cout << "Hash Table is Full! Cannot insert " << key << endl;
     }
 
-    void display() {
-        for (int i = 0; i < size; ++i) {
-            std::cout << "Index " << i << ": ";
-            if (table[i] == -1) {
-                std::cout << "Empty" << std::endl;
-            } else {
-                std::cout << table[i] << std::endl;
+    void search(int key)
+    {
+        int hash = key % SIZE;
+        int i = 0;
+
+        while (i < SIZE)
+        {
+            int index = (hash + i * i) % SIZE;
+
+            if (bucket[index] == key)
+            {
+                cout << key << " Found at Bucket[" << index << "]" << endl;
+                return;
             }
+
+            if (bucket[index] == -1)
+            {
+                break;
+            }
+
+            i++;
+        }
+
+        cout << key << " Not Found!" << endl;
+    }
+
+    void remove(int key)
+    {
+        int hash = key % SIZE;
+        int i = 0;
+
+        while (i < SIZE)
+        {
+            int index = (hash + i * i) % SIZE;
+
+            if (bucket[index] == key)
+            {
+                bucket[index] = -2;      // Deleted Marker
+                cout << key << " Deleted Successfully." << endl;
+                return;
+            }
+
+            if (bucket[index] == -1)
+            {
+                break;
+            }
+
+            i++;
+        }
+
+        cout << key << " Not Found!" << endl;
+    }
+
+    void display()
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            cout << "Bucket[" << i << "] : ";
+
+            if (bucket[i] == -1)
+                cout << "EMPTY";
+            else if (bucket[i] == -2)
+                cout << "DELETED";
+            else
+                cout << bucket[i];
+
+            cout << endl;
         }
     }
 };
 
-int main() {
-    std::vector<int> arr = {3, 2, 9, 6, 11, 13, 7, 12};  
-    int size = 10;  
+int main()
+{
+    Hash hash;
 
-    HashTable hashTable(size);
+    int n;
 
-    for (int key : arr) {
-        hashTable.insert(key);
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter Elements:\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        int value;
+        cin >> value;
+        hash.insert(value);
     }
 
-    std::cout << "\nFinal Hash Table:" << std::endl;
-    hashTable.display();
+    hash.display();
+
+    cout << endl;
+
+    int key;
+
+    cout << "Enter element to search: ";
+    cin >> key;
+
+    hash.search(key);
+
+    cout << endl;
+
+    cout << "Enter element to delete: ";
+    cin >> key;
+
+    hash.remove(key);
+
+    cout << endl;
+
+    hash.display();
 
     return 0;
 }

@@ -1,0 +1,19 @@
+Parent(i)= (i−1) / 2
+Left Child(i)  = 2i+1
+Right Child(i) = 2i+2
+
+Max Heap:
+A[parent[i]] >= A[i]
+
+    > Max Heap Deletion Rule;
+        left child = 2 * i
+        right child = (2 * i) + 1
+
+Min Heap:
+A[parent[i]] <= A[i]
+
+    > Min Heap Deletion Rule;
+        left child = 2 * i
+        right child = (2 * i) + 1
+
+* In Heap Tree Deletion We only delete root node either max or min heap.
