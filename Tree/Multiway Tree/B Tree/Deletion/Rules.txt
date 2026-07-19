@@ -1,1 +1,46 @@
-New Act
+=========================================
+B-Tree Deletion Algorithm
+=========================================
+
+Case 1 : Target Key is in a Leaf Node
+
+i. If the leaf node contains more than the minimum required number of keys.
+    > Simply remove the key.
+
+ii. Otherwise, if the left or right sibling has more than the minimum number of keys.
+    > Borrow one key from the immediate left sibling or the immediate right sibling through the parent.
+
+iii. Otherwise, if neither sibling can lend a key.
+    > Merge the current node with one sibling.
+    > Move the separator key from the parent into the merged node.
+    > Delete the target key from the merged node.
+
+-------------------------------------------------------
+
+Case 2 : Target Key is in an Internal Node
+
+i. If the left child contains more than the minimum number of keys.
+    > Replace the target key with its Inorder Predecessor.
+    > Recursively delete the predecessor from the left subtree.
+
+ii. Otherwise, if the right child contains more than the minimum number of keys.
+    > Replace the target key with its Inorder Successor.
+    > Recursively delete the successor from the right subtree.
+
+iii. Otherwise, if both children contain the minimum number of keys.
+    > Merge the left child, the target key, and the right child into a single node.
+    > Recursively delete the target key from the merged node.
+
+-------------------------------------------------------
+
+Case 3 : Target Key is NOT in the Current Node
+
+i. Determine the correct child that may contain the key.
+
+ii. Before moving down, ensure that the child has more than the minimum number of keys.
+
+iii. If the child has only the minimum number of keys.
+    > Borrow a key from the left or right sibling if possible.
+    > Otherwise, merge the child with one of its siblings.
+
+iv. After fixing the child, recursively continue the deletion.
